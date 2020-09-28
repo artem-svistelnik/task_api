@@ -21,7 +21,8 @@ def put_review(product_id):
     product = Products.query.filter_by(id=product_id).first_or_404()
     new_review = Reviews(products_asin=product.asin,
                          title=request.json['title'],
-                         review=request.json['review'])
+                         review=request.json['review']
+                         )
     db.session.add(new_review)
     db.session.commit()
     return jsonify(new_review.to_dict()), 200

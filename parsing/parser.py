@@ -15,8 +15,8 @@ connection = psycopg2.connect(user=user,
                               host="127.0.0.1",
                               port="5432",
                               database=db_name)
+cursor = connection.cursor()
 try:
-    cursor = connection.cursor()
     drop_table1 = '''DROP TABLE Products cascade ;'''
     drop_table2 = 'DROP TABLE Reviews;'
     cursor.execute(drop_table1)

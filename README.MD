@@ -5,7 +5,9 @@ test_put_request.py makes a test put request to api and create 1 row in table Re
     
 
 to run the application you need to run :
+    
     export FLASK_APP=app.py
+    
     flask run
 
 

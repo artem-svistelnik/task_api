@@ -62,13 +62,4 @@ with open('Reviews.csv', 'r') as f:
                                                                                           row[1].replace("'", "`"),
                                                                                           row[2].replace("'", "`")))
 connection.commit()
-cursor.execute('''Select * from Products;''')
-rows = cursor.fetchall()
-for row in rows:
-    print(row)
-cursor.execute('''Select * from Reviews;''')
-rows = cursor.fetchall()
-for row in rows:
-    print(row)
-connection.commit()
 connection.close()

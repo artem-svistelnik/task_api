@@ -51,7 +51,6 @@ with open('Products.csv', 'r') as f:
     reader = csv.reader(f)
     next(reader)
     for row in reader:
-        print(len(row))
         cursor.execute("Insert into Products (Title,Asin) VALUES ('{}', '{}');".format(row[0].replace("'", "`"), row[1]))
 
 with open('Reviews.csv', 'r') as f:

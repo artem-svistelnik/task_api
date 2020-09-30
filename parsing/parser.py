@@ -1,17 +1,30 @@
 import csv
 import psycopg2
-connection = psycopg2.connect(user="postgres",
-                              password="1",
+from dotenv import load_dotenv, find_dotenv
+import  os
+from dotenv import dotenv_values
+load_dotenv(find_dotenv())
+dot_env_values = dotenv_values()
+
+
+user = dot_env_values['user']
+password = dot_env_values['password']
+db_name = dot_env_values['db_name']
+connection = psycopg2.connect(user=user,
+                              password=password,
                               host="127.0.0.1",
                               port="5432",
-                              database="postgres")
+                              database=db_name)
+try:
+    cursor = connection.cursor()
+    drop_table1 = '''DROP TABLE Products cascade ;'''
+    drop_table2 = 'DROP TABLE Reviews;'
+    cursor.execute(drop_table1)
+    cursor.execute(drop_table2)
+    connection.commit()
+except Exception as e:
+    connection.commit()
 
-cursor = connection.cursor()
-drop_table1 = '''DROP TABLE Products cascade ;'''
-drop_table2 = 'DROP TABLE Reviews;'
-cursor.execute(drop_table1)
-cursor.execute(drop_table2)
-connection.commit()
 create_table1 = '''
     CREATE TABLE Products (
         ID SERIAL,

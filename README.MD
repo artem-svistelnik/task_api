@@ -1,4 +1,4 @@
-python parsing/parser.py run drop db if db exist and create db script and parsing csv to db
+python parsing/parser.py run drop db ,if db exist. After create db and parsing csv to db
 
 test_put_request.py makes a test put request to api and create 1 row in table Reviews
 
